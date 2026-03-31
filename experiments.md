@@ -56,11 +56,11 @@ According to `Overall_Mean`, the preferred factor combination is `TC=5` and `NC=
 
 ### 2. Taguchi Orthogonal Analysis for Stage-II Fingerprint Construction and Extraction
 
-To further analyze the parameter sensitivity of the second stage in the proposed framework, we conducted a Taguchi `L25` orthogonal experiment over three factors: the number of matched cases (`K`), the number of case-binding rules (`M`), and the offline case library size (`off_size`). The table below reports the makespan on the three scenario groups (`S1`, `S2`, and `S3`) together with the overall makespan.
+To further analyze the parameter sensitivity of the second stage in the proposed framework, we conducted a Taguchi `L25` orthogonal experiment over three factors: the number of matched cases (`K_mc`), the number of case-binding rules (`M`), and the offline case library size (`off_size`). The table below reports the makespan on the three scenario groups (`S1`, `S2`, and `S3`) together with the overall makespan.
 
-Among the 25 tested configurations, **Run 9** (`K=4`, `M=5`, `Off_Size=100`) achieves the best directly observed result, with the lowest `Overall_Makespan` of **3727.12**.
+Among the 25 tested configurations, **Run 9** (`K_mc=4`, `M=5`, `Off_Size=100`) achieves the best directly observed result, with the lowest `Overall_Makespan` of **3727.12**.
 
-| Run | K | M | Off_Size | S1_Makespan | S2_Makespan | S3_Makespan | Overall_Makespan |
+| Run | K_mc | M | Off_Size | S1_Makespan | S2_Makespan | S3_Makespan | Overall_Makespan |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | 1 | 1 | 50 | 1734.95 | 3423.43 | 6735.34 | 3964.57 |
 | 2 | 2 | 2 | 75 | 1677.24 | 3312.85 | 6532.40 | 3840.83 |
@@ -88,15 +88,15 @@ Among the 25 tested configurations, **Run 9** (`K=4`, `M=5`, `Off_Size=100`) ach
 | 24 | 4 | 3 | 200 | 1645.44 | 3250.30 | 6413.27 | 3769.67 |
 | 25 | 5 | 4 | 50 | 1633.78 | 3230.26 | 6384.71 | 3749.58 |
 
-The main-effect analysis provides a more stable factor-level view by averaging the response at each level. According to `Overall_Mean`, the preferred levels are `K=5`, `M=5`, and `off_size=100`. This inferred optimum is slightly different from the single best run in the `L25` table, suggesting that the best-performing region is characterized by a larger matching set, a larger rule-binding set, and a moderate offline library size.
+The main-effect analysis provides a more stable factor-level view by averaging the response at each level. According to `Overall_Mean`, the preferred levels are `K_mc=5`, `M=5`, and `off_size=100`. This inferred optimum is slightly different from the single best run in the `L25` table, suggesting that the best-performing region is characterized by a larger matching set, a larger rule-binding set, and a moderate offline library size.
 
 | Factor | Level | S1_Mean | S2_Mean | S3_Mean | Overall_Mean |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| K | 1 | 1697.80 | 3352.28 | 6605.09 | 3885.06 |
-| K | 2 | 1673.98 | 3306.22 | 6518.73 | 3832.98 |
-| K | 3 | 1656.13 | 3271.20 | 6454.90 | 3794.08 |
-| K | 4 | 1645.86 | 3252.10 | 6419.62 | 3772.53 |
-| K | 5 | 1642.04 | 3244.85 | 6408.40 | **3765.10** |
+| K_mc | 1 | 1697.80 | 3352.28 | 6605.09 | 3885.06 |
+| K_mc | 2 | 1673.98 | 3306.22 | 6518.73 | 3832.98 |
+| K_mc | 3 | 1656.13 | 3271.20 | 6454.90 | 3794.08 |
+| K_mc | 4 | 1645.86 | 3252.10 | 6419.62 | 3772.53 |
+| K_mc | 5 | 1642.04 | 3244.85 | 6408.40 | **3765.10** |
 | M | 1 | 1691.67 | 3338.83 | 6578.31 | 3869.60 |
 | M | 2 | 1668.58 | 3295.95 | 6500.41 | 3821.65 |
 | M | 3 | 1656.09 | 3272.12 | 6457.36 | 3795.19 |
@@ -108,11 +108,11 @@ The main-effect analysis provides a more stable factor-level view by averaging t
 | Off_Size | 150 | 1659.90 | 3278.61 | 6468.11 | 3802.21 |
 | Off_Size | 200 | 1668.63 | 3294.94 | 6495.43 | 3819.67 |
 
-The factor ranking in the Taguchi analysis is highly consistent across both `Delta_Overall` and `Delta_SN`. Specifically, `K` is the most influential factor, followed by `M`, while `off_size` has a noticeably smaller impact. This indicates that performance is more sensitive to how many relevant cases are matched and how many rules are bound to each case than to simply enlarging the offline fingerprint library. In addition, the results show that increasing `off_size` beyond a moderate level does not continuously improve performance, and `off_size=100` already offers the best average trade-off.
+The factor ranking in the Taguchi analysis is highly consistent across both `Delta_Overall` and `Delta_SN`. Specifically, `K_mc` is the most influential factor, followed by `M`, while `off_size` has a noticeably smaller impact. This indicates that performance is more sensitive to how many relevant cases are matched and how many rules are bound to each case than to simply enlarging the offline fingerprint library. In addition, the results show that increasing `off_size` beyond a moderate level does not continuously improve performance, and `off_size=100` already offers the best average trade-off.
 
 | Rank | Factor | Delta_Overall | Optimal_Level |
 | :--- | :--- | :--- | :--- |
-| 1 | K | 119.96 | 5 |
+| 1 | K_mc | 119.96 | 5 |
 | 2 | M | 88.62 | 5 |
 | 3 | Off_Size | 29.82 | 100 |
 
